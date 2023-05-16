@@ -1,3 +1,5 @@
+userInfo = []
+
 function signupValidation() {
     let info = document.querySelectorAll('.info')
     for (let i = 0; i < info.length; i++) {
@@ -16,13 +18,12 @@ function signupValidation() {
     let gender = document.getElementById('gender')
 
 
-    if (!firstname.value || !lastname.value || !email.value || !password.value || !gender.value){
+    if (!firstname.value || !lastname.value || !email.value || !password.value || !gender.value) {
         return
-    }else{
+    } else {
         alert('Sign up Successful')
     }
 
-    userInfo = []
 
     obj = {
         FirstName: firstname.value,
@@ -38,16 +39,62 @@ function signupValidation() {
     let storedData = localStorage.getItem('userInfo')
     let infoContent = storedData ? JSON.parse(storedData) : []
     infoContent.push(obj)
-    localStorage.setItem ('userInfo', JSON.stringify (infoContent))
+    localStorage.setItem('userInfo', JSON.stringify(infoContent))
 };
 
 
 
-document.getElementById('btn').onclick = (e) => {
-    e.preventDefault()
-    signupValidation()
-    // alert('working')
+let btn = document.getElementById('btn')
+if (btn) {
+    btn.onclick = (e) => {
+        e.preventDefault()
+        signupValidation()
+        // alert('working')
+    }
 }
+
+function signIn() {
+    // let SignInEmail = document.getElementById('SignInEmail')
+    // let signInPass = document.getElementById('signInPass')
+    let signIn = document.querySelectorAll(".signIn")
+    for (let i = 0; i < signIn.length; i++) {
+        if (signIn[i].value == "" || signIn[i].value == null) {
+            signIn[i].nextElementSibling.innerHTML = signIn[i].previousElementSibling.innerHTML + " is required"
+        } else {
+            signIn[i].nextElementSibling.innerHTML = ""
+        }
+    };
+}
+
+
+
+
+document.querySelector('#SignInBtn').onclick = () => {
+    let SignInEmail = document.getElementById('SignInEmail')
+    let signInPass = document.getElementById('signInPass')
+    let storedData = localStorage.getItem("userInfo" )
+    let store=JSON.parse(storedData)
+    let getUser = store.find((user) => {
+        return user.Email == SignInEmail.value && user.password == signInPass.value
+    })
+    console.log(getUser)
+
+    // console.log(getUser)
+
+    if (getUser) {
+        alert('login Successful')
+    } else alert('invalid Email or Password')
+
+
+    // alert('working')
+    signIn()
+
+}
+
+// let SignInBtn = document.getElementById('SignInBtn')
+// SignInBtn.addEventListener('çlick', function(){
+//     alert('working')
+// })
 
 // document.addEventListener('DOMContentLoaded', () => {
 //     let storedData = localStorage.getItem('userInfo')

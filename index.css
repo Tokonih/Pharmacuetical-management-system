@@ -247,6 +247,57 @@ button{
 
 }
 
+/* sign in */
+.sign-in-body{
+    background-color: whitesmoke;
+}
+
+
+.Sign-in-container {
+    height: 250px;
+    width: 35%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    margin-top: 150px;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px #6d63ff;
+    border-radius: 5px;
+    /* text-align: center; */
+}
+
+
+.Sign-in-container h1 {
+    font-family: sans-serif;
+}
+
+.Sign-in-container form{
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.Sign-in-container form input {
+    margin-bottom: 2rem;
+    width: 70%;
+    height: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(55, 55, 55);
+    outline: none;
+
+}
+
+.Sign-in-btn {
+    min-width: 70%;
+    min-height: 30px;
+    background-color:#6d63ff;
+    color: white;
+    border: none;
+    font-weight: 500;
+    /* padding: 10px; */
+}
+
  /* footer */
  footer{
     height: 100px;
