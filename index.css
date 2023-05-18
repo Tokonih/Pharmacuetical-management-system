@@ -28,7 +28,7 @@ nav {
 
 .N-Reach a {
     text-decoration: none;
-    color:#6591e7;
+    color: #6591e7;
 }
 
 .mid_nav a {
@@ -66,13 +66,13 @@ nav {
     margin-top: 15%;
     margin-left: 5%;
     line-height: 3rem;
-    color: black    ;
+    color: black;
 
 }
 
-.logo  h1{
+.logo h1 {
 
-    color: #6591e7    ;
+    color: #6591e7;
 
 }
 
@@ -86,7 +86,7 @@ nav {
     background-position: absolute;
     background-repeat: no-repeat;
     background-size: 100 100;
-    object-fit:contain;
+    object-fit: contain;
     /* background-color: whitesmoke; */
 }
 
@@ -181,7 +181,8 @@ form input {
 button {
     padding: 15px 30px;
     color: white;
-    background-color: #00afef;
+    background-color: 
+    #6591e7;
     border: none;
     border-radius: 10px;
     font-weight: bolder;
@@ -412,63 +413,63 @@ button {
     width: 100%;
 }
 
-.services-2{
+.services-2 {
     width: 85%;
     margin: auto;
 }
 
-.services-2 img{
+.services-2 img {
     width: 100%;
 }
 
-.how-it-works{
+.how-it-works {
     width: 85%;
     margin: auto;
     text-align: center;
-    line-height:5rem;
+    line-height: 5rem;
     margin-top: 4rem;
 
 }
 
-.how-it-works-{
+.how-it-works- {
     width: 100%;
 }
 
-.how-it-works h1{
+.how-it-works h1 {
     font-size: 40px;
 }
 
-.how-it-works- img{
+.how-it-works- img {
     width: 100%;
 }
 
-.banner-5{
+.banner-5 {
     width: 85%;
     margin: auto;
 }
 
-.banner-5 img{
+.banner-5 img {
     width: 100%;
 }
 
 
 /* appointment */
-.sidebar{
+.sidebar {
     width: 200px;
     background-color: whitesmoke;
     height: 520px;
     padding: 20px;
-    display:none;
+    display: none;
     position: absolute;
     top: 7;
 }
 
-.sidebar li{
+.sidebar li {
     padding-bottom: 10px;
 }
 
 
-.sidebar a{
+.sidebar a {
     display: block;
     padding: 5px 10px;
     color: black;
@@ -476,7 +477,8 @@ button {
 }
 
 /* demtist appointment */
-.dentist-appt{
+.dentist-appt {
+    height: 600px;
     width: 85%;
     margin: auto;
     display: flex;
@@ -484,15 +486,54 @@ button {
     justify-content: space-between;
 }
 
-.dentist-{
+.dentist- {
     width: 50%;
-    background-color: whitesmoke;
     height: 400px;
 }
 
-.dentist{
-    height: 100px;
-    /* background-color: #00afef; */
+.dentist {
+    height: 180px;
+    margin-bottom: 3rem;
+    border-radius: 3rem;
+    background-color: whitesmoke;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.doc-img {
+    width: 30%;
+    /* border-radius: 50px; */
+}
+
+.doc-img img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.doc {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 30px;
+    /* justify-content: center; */
+}
+
+.apptTime {
+    line-height: 30px;
+}
+
+.schedule{
+    height: 200px;
+    width: 90%;
+    margin: auto;
+    background-color: whitesmoke;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
 }
 
 /* footer */
@@ -504,13 +545,6 @@ footer {
     padding-top: 4rem;
 }
 
-.sm-foot {
-    height: 300px;
-    width: 100%;
-    background-color: black;
-    color: white;
-    display: none;
-}
 
 footer .foot {
     height: 90px;

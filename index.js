@@ -145,11 +145,13 @@ function doctor() {
             let inVoice = document.getElementById('inVoice')
             let output = doctors[0]
             let display = `
-                <p>${output.Title}</p>
-                <p>${output.Doctor}</p>
-                <p>${output.time}</p>
-                <p>${output.date}</p>
-                <p>${output.textarea}</p>
+              <div class="schedule">
+              <h1>${output.Title}</h1>
+              <p>Doctor: ${output.Doctor}</p>
+              <p>Time: ${output.time}</p>
+              <p>Date: ${output.date}</p>
+              <p>Note: ${output.textarea}</p>
+              </div>
             `
             inVoice.innerHTML = (display)
             console.log(output)
@@ -160,11 +162,14 @@ function doctor() {
             let inVoice = document.getElementById('inVoice')
             let output = doctors[1]
             let display = `
-                <p>${output.Title}</p>
-                <p>${output.Doctor}</p>
-                <p>${output.time}</p>
-                <p>${output.date}</p>
-                <p>${output.textarea}</p>
+                <div class="schedule">
+                <h1>${output.Title}</h1>
+                <p>Doctor: ${output.Doctor}</p>
+                <p>Time: ${output.time}</p>
+                <p>Date: ${output.date}</p>
+                <p>Note: ${output.textarea}</p>
+                </div>
+
 
             `
             inVoice.innerHTML = (display)
@@ -176,11 +181,14 @@ function doctor() {
             let inVoice = document.getElementById('inVoice')
             let output = doctors[2]
             let display = `
-                <p>${output.Title}</p>
-                <p>${output.Doctor}</p>
-                <p>${output.time}</p>
-                <p>${output.date}</p>
-                <p>${output.textarea}</p>
+               <div  class="schedule">
+               <h1>${output.Title}</h1>
+
+               <p>Doctor: ${output.Doctor}</p>
+               <p>Time: ${output.time}</p>
+               <p>Date: ${output.date}</p>
+               <p>Note: ${output.textarea}</p>
+               </div>
 
             `
             inVoice.innerHTML = (display)
@@ -235,7 +243,8 @@ function doctor() {
 // doctor()
 
 if (book) {
-    book.onclick = () => {
+    book.onclick = (e) => {
+        e.preventDefault()
         doctor()
     }
 }
