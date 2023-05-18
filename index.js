@@ -21,7 +21,8 @@ function signupValidation() {
     if (!firstname.value || !lastname.value || !email.value || !password.value || !gender.value) {
         return
     } else {
-        alert('Sign up Successful')
+        alert('Sign Up Successful')
+        window.location.href = 'signIn.html'
     }
 
 
@@ -67,29 +68,149 @@ function signIn() {
 }
 
 
+let SignInBtn = document.getElementById('SignInBtn')
+if (SignInBtn) {
+    SignInBtn.onclick = () => {
+        let SignInEmail = document.getElementById('SignInEmail')
+        let signInPass = document.getElementById('signInPass')
+        let storedData = localStorage.getItem("userInfo")
+        let store = JSON.parse(storedData)
+        let getUser = store.find((user) => {
+            return user.Email == SignInEmail.value && user.password == signInPass.value
+        })
+        console.log(getUser)
+
+        // console.log(getUser)
+
+        if (getUser) {
+            window.location.href = "main.html"
+            // alert('login Successful')
+        } else alert('invalid Email or Password')
 
 
-document.querySelector('#SignInBtn').onclick = () => {
-    let SignInEmail = document.getElementById('SignInEmail')
-    let signInPass = document.getElementById('signInPass')
-    let storedData = localStorage.getItem("userInfo" )
-    let store=JSON.parse(storedData)
-    let getUser = store.find((user) => {
-        return user.Email == SignInEmail.value && user.password == signInPass.value
-    })
-    console.log(getUser)
-
-    // console.log(getUser)
-
-    if (getUser) {
-        alert('login Successful')
-    } else alert('invalid Email or Password')
-
-
-    // alert('working')
-    signIn()
-
+        // alert('working')
+        signIn()
+    }
 }
+
+// let sidemenu = document.getElementById('sidemenu')
+// let sidebar = document.getElementById('sidebar')
+// if (sidebar){
+//     sidebar.onclick = () => {
+//         alert('working')
+//         if(sidebar.style.display === "none"){
+//             sidebar.style.display = "block"
+//         }else{
+//             sidebar.style.display = "none"
+//         }
+//         alert('working')
+//     }
+// }
+
+let time = document.getElementById('time')
+let date = document.getElementById('date')
+let textarea = document.getElementById('textarea')
+let book = document.getElementById('book')
+
+function doctor() {
+    const setMeeting = new Promise((resolve, reject) => {
+        let nath = {
+            Title: 'Doctor Appointment',
+            Doctor: "Doctor Nath",
+            time: time.value,
+            date: date.value,
+            textarea: textarea.value
+        }
+
+        let Aisha = {
+            Title: 'Doctor Appointment',
+            Doctor: "Doctor Aisha",
+            time: time.value,
+            date: date.value,
+            textarea: textarea.value
+        }
+
+        let Gerald = {
+            Title: 'Doctor Appointment',
+            Doctor: "Doctor Gerald",
+            time: time.value,
+            date: date.value,
+            textarea: textarea.value
+        };
+
+        if (time.value == 7 || time.value < 9) {
+            resolve(nath)
+        } else {
+            reject('sorry doctor not avaliable')
+        }
+
+        if (time.value == 9 || time.value < 13) {
+            resolve(Aisha)
+        } else {
+            reject('sorry doctor not avaliable')
+        }
+
+        // if (time.value == 7 || time.value < 9) {
+        //     resolve(Gerald)
+        // } else {
+        //     reject('sorry doctor not avaliable')
+        // }
+    });
+
+    if(!time.value || !date.value){
+        alert('please fill the form to book an appointment')
+        return
+    }
+
+    setMeeting.then((result) => {
+        let inVoice = document.getElementById('inVoice');
+        let output = `
+        <div>
+        <h2> ${result.Title}</h2>
+        <h3>Doctor</h3>
+        <p> ${result.Doctor}<p/>
+        <h3>Time</h3>
+        <p>${result.time}<p/>
+        <h3>Date</h3>
+        <p>${result.date}<p/>
+        <h3>Message</h3>
+        <p>${result.textarea}<p/>
+    </div>
+        `
+        inVoice.innerHTML =output
+    }).catch((error) => {
+        inVoice.innerHTML = error
+    })
+}
+
+if (book) {
+    book.onclick = () => {
+        doctor()
+    }
+}
+
+// document.querySelector('#SignInBtn').onclick = () => {
+//     let SignInEmail = document.getElementById('SignInEmail')
+//     let signInPass = document.getElementById('signInPass')
+//     let storedData = localStorage.getItem("userInfo" )
+//     let store=JSON.parse(storedData)
+//     let getUser = store.find((user) => {
+//         return user.Email == SignInEmail.value && user.password == signInPass.value
+//     })
+//     console.log(getUser)
+
+//     // console.log(getUser)
+
+//     if (getUser) {
+//         window.location.href = "main.html"
+//         // alert('login Successful')
+//     } else alert('invalid Email or Password')
+
+
+//     // alert('working')
+//     signIn()
+
+// }
 
 // let SignInBtn = document.getElementById('SignInBtn')
 // SignInBtn.addEventListener('çlick', function(){
