@@ -277,7 +277,7 @@ button {
     padding: 20px;
     margin-top: 150px;
     text-align: center;
-    box-shadow: 0px 0px 10px 0px #6d63ff;
+    box-shadow: 0px 0px 10px 0px whitesmoke;
     border-radius: 5px;
     /* text-align: center; */
 }
@@ -307,7 +307,7 @@ button {
 .Sign-in-btn {
     min-width: 70%;
     min-height: 30px;
-    background-color: #6d63ff;
+    background-color: #6591e7;
     color: white;
     border: none;
     font-weight: 500;
@@ -496,6 +496,7 @@ button {
     margin-bottom: 3rem;
     border-radius: 3rem;
     background-color: whitesmoke;
+    box-shadow: 2px 2px 5px;
     /* display: flex;
     align-items: center;
     justify-content: center; */
@@ -534,7 +535,45 @@ button {
     line-height: 2rem;
     border-radius: 10px;
     margin-top: 2rem;
+    box-shadow: 2px 2px 3px;
 }
+
+/* Diagnose */
+.diagnose {
+    height: 400px;
+    width: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 400px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: whitesmoke;
+    /* overflow: hidden; */
+    /* display: none; */
+    /* position: absolute; */
+}
+
+.active {
+    display: flex;
+}
+
+.left, .right{
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 20px;
+}
+
+
+.right{
+    right: 0;
+}
+
+
 
 /* footer */
 footer {

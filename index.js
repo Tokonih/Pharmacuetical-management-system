@@ -140,6 +140,11 @@ function doctor() {
     ]
     console.log(doctors)
 
+    if(! time.value || !date.value || !textarea.value){
+        alert("Kindly fill the form to book an appointment with a doctor")
+        return
+    }
+
     for (let i = 0; i < doctors.length; i++) {
         if (time.value == 7 || time.value < 9) {
             let inVoice = document.getElementById('inVoice')
@@ -199,6 +204,8 @@ function doctor() {
         }
     }
 
+
+    
 
     // if (time.value == 9 || time.value < 13) {
     //     resolve(Aisha)
