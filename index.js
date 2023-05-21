@@ -1,3 +1,6 @@
+
+
+
 userInfo = []
 
 function signupValidation() {
@@ -107,185 +110,21 @@ if (SignInBtn) {
 //     }
 // }
 
-let time = document.getElementById('time')
-let date = document.getElementById('date')
-let textarea = document.getElementById('textarea')
-let book = document.getElementById('book')
-
-function doctor() {
-    // const setMeeting = new Promise((resolve, reject) => {
-
-    let doctors = [
-        {
-            Title: 'Doctor Appointment',
-            Doctor: "Doctor Nath",
-            time: time.value,
-            date: date.value,
-            textarea: textarea.value
-        },
-        {
-            Title: 'Doctor Appointment',
-            Doctor: "Doctor Aisha",
-            time: time.value,
-            date: date.value,
-            textarea: textarea.value
-        },
-        {
-            Title: 'Doctor Appointment',
-            Doctor: "Doctor Gerald",
-            time: time.value,
-            date: date.value,
-            textarea: textarea.value
-        }
-    ]
-    console.log(doctors)
-
-    if(! time.value || !date.value || !textarea.value){
-        alert("Kindly fill the form to book an appointment with a doctor")
-        return
-    }
-
-    for (let i = 0; i < doctors.length; i++) {
-        if (time.value == 7 || time.value < 9) {
-            let inVoice = document.getElementById('inVoice')
-            let output = doctors[0]
-            let display = `
-              <div class="schedule">
-              <h1>${output.Title}</h1>
-              <p>Doctor: ${output.Doctor}</p>
-              <p>Time: ${output.time}</p>
-              <p>Date: ${output.date}</p>
-              <p>Note: ${output.textarea}</p>
-              </div>
-            `
-            inVoice.innerHTML = (display)
-            console.log(output)
-            // (doctors[0])
-        }
-
-        else if (time.value == 9 || time.value < 13) {
-            let inVoice = document.getElementById('inVoice')
-            let output = doctors[1]
-            let display = `
-                <div class="schedule">
-                <h1>${output.Title}</h1>
-                <p>Doctor: ${output.Doctor}</p>
-                <p>Time: ${output.time}</p>
-                <p>Date: ${output.date}</p>
-                <p>Note: ${output.textarea}</p>
-                </div>
-
-
-            `
-            inVoice.innerHTML = (display)
-            console.log(output)
-            // (doctors[0])
-        }
-
-        else if (time.value == 14 || time.value < 16) {
-            let inVoice = document.getElementById('inVoice')
-            let output = doctors[2]
-            let display = `
-               <div  class="schedule">
-               <h1>${output.Title}</h1>
-
-               <p>Doctor: ${output.Doctor}</p>
-               <p>Time: ${output.time}</p>
-               <p>Date: ${output.date}</p>
-               <p>Note: ${output.textarea}</p>
-               </div>
-
-            `
-            inVoice.innerHTML = (display)
-            console.log(output)
-            // (doctors[0])
-        } else {
-            alert('sorry doctor not avaliable')
-        }
-    }
-
-
-    
-
-    // if (time.value == 9 || time.value < 13) {
-    //     resolve(Aisha)
-    // } else {
-    //     reject('sorry doctor not avaliable')
-    // }
-
-    // if (time.value == 7 || time.value < 9) {
-    //     resolve(Gerald)
-    // } else {
-    //     reject('sorry doctor not avaliable')
-    // }
-    // });
-
-    // if (!time.value || !date.value) {
-    //     alert('please fill the form to book an appointment')
-    //     return
-    // }
-
-    // setMeeting.then((result) => {
-    //     let inVoice = document.getElementById('inVoice');
-    //     let output = `
-    //     <div>
-    //     <h2> ${result.Title}</h2>
-    //     <h3>Doctor</h3>
-    //     <p> ${result.Doctor}<p/>
-    //     <h3>Time</h3>
-    //     <p>${result.time}<p/>
-    
-    //     <h3>Date</h3>
-    //     <p>${result.date}<p/>
-    //     <h3>Message</h3>
-    //     <p>${result.textarea}<p/>
-    // </div>
-    //     `
-    //     inVoice.innerHTML = output
-    // }).catch((error) => {
-    //     inVoice.innerHTML = error
-    // })
+function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
 }
 
-// doctor()
-
-if (book) {
-    book.onclick = (e) => {
-        e.preventDefault()
-        doctor()
-    }
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
 }
 
-// document.querySelector('#SignInBtn').onclick = () => {
-//     let SignInEmail = document.getElementById('SignInEmail')
-//     let signInPass = document.getElementById('signInPass')
-//     let storedData = localStorage.getItem("userInfo" )
-//     let store=JSON.parse(storedData)
-//     let getUser = store.find((user) => {
-//         return user.Email == SignInEmail.value && user.password == signInPass.value
-//     })
-//     console.log(getUser)
-
-//     // console.log(getUser)
-
-//     if (getUser) {
-//         window.location.href = "main.html"
-//         // alert('login Successful')
-//     } else alert('invalid Email or Password')
 
 
-//     // alert('working')
-//     signIn()
+// let time = document.getElementById('time')
+// let date = document.getElementById('date')
+// let textarea = document.getElementById('textarea')
+// let book = document.getElementById('book')
 
-// }
 
-// let SignInBtn = document.getElementById('SignInBtn')
-// SignInBtn.addEventListener('çlick', function(){
-//     alert('working')
-// })
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     let storedData = localStorage.getItem('userInfo')
-//     let infoContent = storedData ? JSON.parse(storedData) : []
-// console.log(infoContent)
-// })
