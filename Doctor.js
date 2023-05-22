@@ -1,6 +1,6 @@
 
 
-   let  Dentist = [
+let Dentist = [
     {
         profession: "Dentist",
         dayOfWeek: "Monday",
@@ -73,7 +73,7 @@
         time: "3:00 PM",
         doctorName: "Dr.Smith"
     },
-  
+
     {
         profession: "Dentist",
         dayOfWeek: "Friday",
@@ -167,7 +167,7 @@
         time: "3:00 PM",
         doctorName: "Dr.Smith"
     },
-  
+
     {
         profession: "Surgeon",
         dayOfWeek: "Friday",
@@ -262,7 +262,7 @@
         time: "3:00 PM",
         doctorName: "Dr.Smith"
     },
-  
+
     {
         profession: "Psychiatrist",
         dayOfWeek: "Friday",
@@ -358,7 +358,7 @@
         time: "3:00 PM",
         doctorName: "Dr.Smith"
     },
-  
+
     {
         profession: "Anesthesiologist",
         dayOfWeek: "Friday",
@@ -383,37 +383,34 @@
 
 
 
-    
 
 
-    
+
+
 ]
 
-    let time = document.getElementById('time')
-    let date = document.getElementById('date')
-    let inVoice = document.getElementById('inVoice')
-    let book = document.getElementById('book')
-    let textarea = document.getElementById('textarea')
-    let docList = document.getElementById('docList')
+localStorage.setItem('doctorData', JSON.stringify(Dentist))
+let storedData = localStorage.getItem('doctorData')
+let retrieve = JSON.parse(storedData)
 
-     
-    
+let time = document.getElementById('time')
+let date = document.getElementById('date')
+let inVoice = document.getElementById('inVoice')
+let book = document.getElementById('book')
+let textarea = document.getElementById('textarea')
+let docList = document.getElementById('docList')
 
-    localStorage.setItem('doctorData', JSON.stringify(Dentist))
-    let storedData = localStorage.getItem('doctorData')
-    let retrieve = JSON.parse(storedData)
-    
-    function schedule(){
-        let getDentist = Dentist.find((doc) => {
-            
+apptArr = []
 
-            return doc.profession == docList.value && doc.dayOfWeek == date.value && doc.time == time.value
-        })
+function schedule() {
+    let getDentist = Dentist.find((doc) => {
+        return doc.profession == docList.value && doc.time == time.value
+    })
 
-       
-    
-        if(getDentist){
-            outPut = `
+
+
+    if (getDentist) {
+        outPut = `
             <div class="dentist" id="dentist1">
             <div class="doc"> 
                 <div class="doc-img">
@@ -423,69 +420,43 @@
                     <h3>${getDentist.doctorName}</h3>
                     <p>Day: ${getDentist.dayOfWeek}</p>
                     <p>Time: ${getDentist.time}</p> 
+                    <p>Time: ${date.value}</p> 
                     <p>Message:  ${textarea.value}</p>
                 </div>
             </div>
         </div>
             `
-            inVoice.innerHTML = outPut
-        }else{
-            alert('Doctor not avaliable')
-        }
-
-        
+        inVoice.innerHTML = outPut
+    } else {
+        alert('Doctor not avaliable')
     }
+
+
+    obj = {
+        doctor: docList.value,
+        doctorTime: time.value,
+        dayOfWeek: date.value,
+    }
+    apptArr.push(obj)
+    localStorage.setItem('getDentist', JSON.stringify(apptArr))
+    let storedData = localStorage.getItem('getDentist')
+    let retrieve = JSON.parse(storedData)
+    console.log(retrieve)
+ 
    
-    // function getSurgeon(){
-    //     let getSurgeon = Surgeon.find((surg) => {
-            
+    // let appt = localStorage.getItem('getDentist')
+    // let apptData = appt ? JSON.parse(appt) : []
+    // apptData.push(obj)
+    // localStorage.setItem('getDentist', JSON.stringify(apptData))
 
-    //         return surg.dayOfWeek == date.value && surg.time == time.value
-    //     })
-    
-    //     if(getSurgeon){
-    //         outPut = `
-    //         <div class="dentist" id="dentist1">
-    //         <div class="doc"> 
-    //             <div class="doc-img">
-                    
-    //             </div>
-    //             <div class="apptTime">
-    //                 <h3>${getSurgeon.doctorName}</h3>
-    //                 <p>${getSurgeon.dayOfWeek}</p>
-    //                 <p>${getSurgeon.time}</p> 
-    //                 <p>${textarea.value}</p>
-    //             </div>
-    //         </div>
-    //     </div>
-    //         `
-    //         inVoice.innerHTML = outPut
-    //     }else{
-    //         alert('Surgeon not avaliable')
-    //     }
-    // }
+}
 
-    book.onclick = (e) =>{
-        e.preventDefault()
-        schedule()
-        // getSurgeon()
-    };
-    // console.log(retrieve)
-    // if(time.value == ){
-        // let getDoctor = Doctors.forEach((doc) => {
-       
 
-        //     return(doc.profession)
-        // })
-        // console.log(getDoctor)
-    // }
-    
 
-    // localStorage.getItem(doctorData)
-    
 
-    // const getDoctor = Doctors.filter(function(result){
-    //     if(time == ){
+book.onclick = (e) => {
+    e.preventDefault()
+    schedule()
+    // getSurgeon()
+};
 
-    //     }
-    // })
