@@ -379,14 +379,6 @@ let Dentist = [
         time: "3:00 PM",
         doctorName: "Dr.Json"
     },
-
-
-
-
-
-
-
-
 ]
 
 localStorage.setItem('doctorData', JSON.stringify(Dentist))
@@ -403,13 +395,29 @@ let docList = document.getElementById('docList')
 apptArr = []
 
 function schedule() {
+    if(localStorage.getItem('getDentist')){
+        apptArr = JSON.parse(localStorage.getItem('getDentist'))
+    }
+  
+
+
     let getDentist = Dentist.find((doc) => {
         return doc.profession == docList.value && doc.time == time.value
     })
 
+    // let confirm = false 
+    let getLocalStorageData = apptArr.find((e) => {
+        if (docList.value == e.doctor && time.value == e.doctorTime)
+        {
+            alert('appointment has already been scheduled. kindly pick another time')
+            return true
+        }
+    })
 
 
-    if (getDentist) {
+
+
+    if (getDentist && !getLocalStorageData) {
         outPut = `
             <div class="dentist" id="dentist1">
             <div class="doc"> 
@@ -427,21 +435,21 @@ function schedule() {
         </div>
             `
         inVoice.innerHTML = outPut
+        obj = {
+            doctor: docList.value,
+            doctorTime: time.value,
+            dayOfWeek: date.value,
+        }
+        apptArr.push(obj)
+        localStorage.setItem('getDentist', JSON.stringify(apptArr))
     } else {
         alert('Doctor not avaliable')
     }
 
 
-    obj = {
-        doctor: docList.value,
-        doctorTime: time.value,
-        dayOfWeek: date.value,
-    }
-    apptArr.push(obj)
-    localStorage.setItem('getDentist', JSON.stringify(apptArr))
-    let storedData = localStorage.getItem('getDentist')
-    let retrieve = JSON.parse(storedData)
-    console.log(retrieve)
+
+
+
  
    
     // let appt = localStorage.getItem('getDentist')
