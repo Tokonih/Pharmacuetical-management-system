@@ -24,10 +24,20 @@ function signupValidation() {
     if (!firstname.value || !lastname.value || !email.value || !password.value || !gender.value) {
         return
     } else {
-        alert('Sign Up Successful')
-        window.location.href = 'signIn.html'
-    }
+        popup.classList.add("open-popup")
 
+        // alert('Sign Up Successful')
+        setTimeout(() => {
+            
+            window.location.href = 'signIn.html'
+        }, 1000);
+    }
+      if (close) {
+        close.onclick = () => {
+            popup.classList.remove("open-popup")
+
+        }
+    }
 
     obj = {
         FirstName: firstname.value,
@@ -86,9 +96,15 @@ if (SignInBtn) {
         // console.log(getUser)
 
         if (getUser) {
+            setInterval(() => {
+                
+            }, 1000);
             window.location.href = "main.html"
             // alert('login Successful')
-        } else alert('invalid Email or Password')
+
+        } else{
+            alert('invalid Email or Password')
+        } 
 
 
         // alert('working')

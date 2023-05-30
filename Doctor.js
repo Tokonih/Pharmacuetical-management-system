@@ -391,14 +391,16 @@ let inVoice = document.getElementById('inVoice')
 let book = document.getElementById('book')
 let textarea = document.getElementById('textarea')
 let docList = document.getElementById('docList')
+let close = document.getElementById("close")
+let closeD = document.getElementById("closeD")
 
 apptArr = []
 
 function schedule() {
-    if(localStorage.getItem('getDentist')){
+    if (localStorage.getItem('getDentist')) {
         apptArr = JSON.parse(localStorage.getItem('getDentist'))
     }
-  
+
 
 
     let getDentist = Dentist.find((doc) => {
@@ -407,13 +409,30 @@ function schedule() {
 
     // let confirm = false 
     let getLocalStorageData = apptArr.find((e) => {
-        if (docList.value == e.doctor && time.value == e.doctorTime)
-        {
-            alert('appointment has already been scheduled. kindly pick another time')
+        if (docList.value == e.doctor && time.value == e.doctorTime) {
+            // alert('appointment has already been scheduled. kindly pick another time')
+            popup.classList.add("open-popup")
+            
             return true
+        }else{
+            popup2.classList.add("open-popup")
         }
     })
 
+
+    if (close) {
+        close.onclick = () => {
+            popup.classList.remove("open-popup")
+
+        }
+    }
+
+    if (closeD) {
+        closeD.onclick = () => {
+            popup2.classList.remove("open-popup")
+
+        }
+    }
 
 
 
@@ -443,21 +462,25 @@ function schedule() {
         apptArr.push(obj)
         localStorage.setItem('getDentist', JSON.stringify(apptArr))
     } else {
-        alert('Doctor not avaliable')
+        popup.classList.add("open-popup")
+
+        // alert('Doctor not avaliable')
     }
 
 
 
 
 
- 
-   
+
+
+
     // let appt = localStorage.getItem('getDentist')
     // let apptData = appt ? JSON.parse(appt) : []
     // apptData.push(obj)
     // localStorage.setItem('getDentist', JSON.stringify(apptData))
 
 }
+
 
 
 
